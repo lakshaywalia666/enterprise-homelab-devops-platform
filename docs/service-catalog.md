@@ -41,13 +41,20 @@ This document tracks all services running in the Enterprise Homelab DevOps Platf
 
 Check server status:
 
-```bash
-/srv/homelab/scripts/status.sh
+    /srv/homelab/scripts/status.sh
+
 Check Docker containers:
 
-docker ps
+    docker ps
 
 Go to homelab folder:
 
-cd /srv/homelab
+    cd /srv/homelab
 
+Check firewall rules:
+
+    sudo ufw status numbered
+
+Check Git status:
+
+    git status
