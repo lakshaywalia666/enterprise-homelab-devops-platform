@@ -19,12 +19,13 @@ Dashboard:
 | Local Docker Registry | HTTP(s) | http://192.168.1.18:5000/v2/ | UP |
 | Portainer | HTTP(s) | https://192.168.1.18:9443 | UP |
 | SSH Server | TCP Port | 192.168.1.18:22 | UP |
+| Argo CD Dashboard | HTTP(s) | https://192.168.1.18:30443 | UP |
 
 ## Current Dashboard Summary
 
 | Metric | Value |
 |---|---:|
-| Up | 5 |
+| Up | 6 |
 | Down | 0 |
 | Maintenance | 0 |
 | Unknown | 0 |
@@ -39,6 +40,8 @@ The SSH monitor uses a fixed Docker network for Uptime Kuma.
 | Uptime Kuma fixed IP | 172.30.10.10 |
 | Uptime Kuma subnet | 172.30.10.0/24 |
 | Firewall access | 172.30.10.0/24 to port 22 |
+
+Argo CD and Portainer use self-signed HTTPS certificates, so their Uptime Kuma monitors are configured to ignore TLS/SSL verification errors.
 
 ## Verification Commands
 
@@ -57,6 +60,10 @@ Check Docker demo app:
 Check registry health:
 
     curl http://192.168.1.18:5000/v2/
+
+Check Argo CD service:
+
+    kubectl get svc argocd-server -n argocd
 
 Check Uptime Kuma fixed IP:
 
