@@ -10,6 +10,10 @@ echo "Stopping Uptime Kuma..."
 cd /srv/homelab/docker/uptime-kuma
 docker compose down
 
+echo "Stopping Registry..."
+cd /srv/homelab/docker/registry
+docker compose down
+
 echo "Stopping Portainer..."
 cd /srv/homelab/docker/portainer
 docker compose down

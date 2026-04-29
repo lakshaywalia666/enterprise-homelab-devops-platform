@@ -1,0 +1,9 @@
+services:
+  registry:
+    image: registry:2
+    container_name: homelab-registry
+    restart: unless-stopped
+    ports:
+      - "192.168.1.18:5000:5000"
+    volumes:
+      - /srv/homelab/data/registry:/var/lib/registry
