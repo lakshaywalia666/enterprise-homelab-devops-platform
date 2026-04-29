@@ -15,6 +15,7 @@ Dashboard:
 | Monitor Name | Type | Target | Status |
 |---|---|---|---|
 | Homelab Demo App | HTTP(s) | http://192.168.1.18:8080/health | UP |
+| Kubernetes Demo App | HTTP(s) | http://192.168.1.18:30080/health | UP |
 | Local Docker Registry | HTTP(s) | http://192.168.1.18:5000/v2/ | UP |
 | Portainer | HTTP(s) | https://192.168.1.18:9443 | UP |
 | SSH Server | TCP Port | 192.168.1.18:22 | UP |
@@ -23,7 +24,7 @@ Dashboard:
 
 | Metric | Value |
 |---|---:|
-| Up | 4 |
+| Up | 5 |
 | Down | 0 |
 | Maintenance | 0 |
 | Unknown | 0 |
@@ -45,13 +46,17 @@ Check running containers:
 
     docker ps
 
+Check Kubernetes demo app:
+
+    curl http://192.168.1.18:30080/health
+
+Check Docker demo app:
+
+    curl http://192.168.1.18:8080/health
+
 Check registry health:
 
     curl http://192.168.1.18:5000/v2/
-
-Check demo app health:
-
-    curl http://192.168.1.18:8080/health
 
 Check Uptime Kuma fixed IP:
 
