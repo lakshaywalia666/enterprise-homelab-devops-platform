@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homelab-demo-app
+  namespace: homelab-apps
+  labels:
+    app: homelab-demo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: homelab-demo-app
+  template:
+    metadata:
+      labels:
+        app: homelab-demo-app
+    spec:
+      containers:
+        - name: homelab-demo-app
+          image: 192.168.1.18:5000/homelab-demo-app:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_ENV
+              value: "kubernetes"
+            - name: PORT
+              value: "3000"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
