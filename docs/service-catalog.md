@@ -27,7 +27,7 @@ This document tracks all services running in the Enterprise Homelab DevOps Platf
 | 9443 | 192.168.1.0/24 | Portainer |
 | 8080 | 192.168.1.0/24 | Demo App |
 | 3001 | 192.168.1.0/24 | Uptime Kuma |
-| 22 | 172.20.0.0/16 | Uptime Kuma SSH monitor |
+| 22 | 172.30.10.0/24 | Uptime Kuma SSH monitor |
 
 ## Docker Containers
 

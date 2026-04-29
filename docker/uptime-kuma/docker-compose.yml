@@ -7,3 +7,13 @@ services:
       - "192.168.1.18:3001:3001"
     volumes:
       - /srv/homelab/data/uptime-kuma:/app/data
+    networks:
+      uptime-kuma-net:
+        ipv4_address: 172.30.10.10
+
+networks:
+  uptime-kuma-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.10.0/24
