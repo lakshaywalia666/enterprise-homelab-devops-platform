@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homelab-demo-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/lakshaywalia666/enterprise-homelab-devops-platform.git
+    targetRevision: main
+    path: kubernetes/apps/demo-app
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: homelab-apps
+
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
