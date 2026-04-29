@@ -6,7 +6,7 @@ metadata:
   labels:
     app: homelab-demo-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: homelab-demo-app
