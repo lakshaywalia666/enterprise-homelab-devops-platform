@@ -227,11 +227,7 @@ sequenceDiagram
 
 ---
 
-### Kubernetes Pods
 
-<img src="docs/screenshots/kubernetes-pods.png" alt="Kubernetes Pods" width="100%"/>
-
----
 
 ## Project Structure
 
